@@ -1,20 +1,27 @@
+import os
 import pandas as pd
 
-# Cargar datos
-df = pd.read_csv("../data/data.csv")
+# Obtener ruta base del proyecto
+base_path = os.path.dirname(os.path.dirname(__file__))
 
-# Mostrar primeras filas
-print("Primeras filas:")
+# Construir ruta al CSV
+file_path = os.path.join(base_path, "data", "data.csv")
+
+df = pd.read_csv(file_path)
+
 print(df.head())
 
-# Info general
-print("\nInfo:")
-print(df.info())
-
-# Conteo por tipo de equipo
-print("\nEquipos más frecuentes:")
+print("\nConteo por tipo de equipo:")
 print(df["equipment_type"].value_counts())
 
-# Promedio de tiempo de inactividad
 print("\nPromedio downtime:")
 print(df["downtime_hours"].mean())
+
+print("\nDowntime total por equipo:")
+print(df.groupby("equipment_type")["downtime_hours"].sum())
+
+print("\nCasos por técnico:")
+print(df["technician"].value_counts())
+
+print("\nDowntime por técnico:")
+print(df.groupby("technician")["downtime_hours"].sum())
