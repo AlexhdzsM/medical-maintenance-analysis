@@ -14,6 +14,11 @@ Hospitals rely on reactive maintenance, leading to increased downtime and ineffi
 ## Project Status
 In progress 🚧
 
+## Key Findings
+
+- X-Ray equipment generates the highest downtime despite fewer occurrences.
+- Maintenance efforts may need to prioritize high-impact equipment rather than frequent failures.
+
 ## Next Steps
 - Data loading and cleaning
 - Exploratory data analysis

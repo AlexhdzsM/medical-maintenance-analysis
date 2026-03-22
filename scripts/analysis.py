@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # Obtener ruta base del proyecto
 base_path = os.path.dirname(os.path.dirname(__file__))
@@ -25,3 +26,12 @@ print(df["technician"].value_counts())
 
 print("\nDowntime por técnico:")
 print(df.groupby("technician")["downtime_hours"].sum())
+
+# Downtime por equipo
+df.groupby("equipment_type")["downtime_hours"].sum().plot(kind="bar")
+
+plt.title("Downtime total por tipo de equipo")
+plt.xlabel("Equipo")
+plt.ylabel("Horas de inactividad")
+
+plt.show()
